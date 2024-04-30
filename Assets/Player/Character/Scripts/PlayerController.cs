@@ -1,84 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private float playerSpeed = 3.0f;
+    private float playerSprintSpeed = 8.0f;
+    [SerializeField]
+    private float jumpHeight = 2.0f;
+    [SerializeField]
+    private float gravityValue = -9.81f;
+    [SerializeField]
+    private float rotationSpeed = 8f;
+    private CharacterController controller;
+    private PlayerInput input;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
+    private Transform cameraTransform;
 
-    PlayerInput input;
-
-    [Header("Movement")]
-    public Vector2 move;
-    public bool isSprinting;
-    public float moveSpeed = 3.0f;
-    public float sprintSpeed = 8.0f;
-
-    [Header("Cam and Cursor")]
-    [SerializeField] private Transform followTarget;
-    public Vector2 look;
-    public bool isMouseEnable = false;
-    private float xRotation;
-    private float yRotation;
+    private InputAction moveAction;
+    private InputAction jumpAction;
 
 
-    private void Awake()
+    private void Start()
     {
-        //Create new instance of generated input actions scripts
-        input = new PlayerInput();
+        controller = GetComponent<CharacterController>();
+        input = GetComponent<PlayerInput>();
+        cameraTransform = Camera.main.transform;
 
-        //Movement walk and sprint
-        input.Player.Move.performed += x => move = x.ReadValue<Vector2>();
-        input.Player.Sprint.performed += x => isSprinting = x.ReadValue<bool>();
-
-        //camera controller
-        input.Player.Look.performed += x => look = x.ReadValue<Vector2>();
+        moveAction = input.actions["Move"];
+        jumpAction = input.actions["Jump"];
     }
 
     void Update()
     {
-        HandleCursor();
+        Move();
     }
 
-    private void LateUpdate() {
-        CameraRotation();
-    }
-
-    private void CameraRotation() {
-        if (isMouseEnable) {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-
-            xRotation += look.y * Time.deltaTime;
-            yRotation -= look.x * Time.deltaTime;
-
-            xRotation = Mathf.Clamp(xRotation, -30, 70);
-
-            Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0);
-
-            followTarget.rotation = rotation;
+    private void Move() {
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
         }
-        else {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+
+        Vector2 moveInput = moveAction.ReadValue<Vector2>();
+        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
+        move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
+        move.y = 0f;
+        controller.Move(move * Time.deltaTime * playerSpeed);
+
+        //change the height position of thee player
+        if (jumpAction.triggered && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
+
+        //rotate toward the camera direction
+        //Quaternion.Euler: NEED (x, y, z) in the case of rotation of the player base on the camera position, we use only the y axis
+        Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+
+        //Quaternion.Lerp: NEED (directionFrom.rotation, directionTo.rotation, speed)
+        //This fonction interpolate for smooth effect and turn the character smoothly in the directionTo
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
-
-    private void HandleCursor() {
-        if (Input.GetKeyDown(KeyCode.LeftAlt)) {
-            isMouseEnable = !isMouseEnable;
-        }
-    }
-
-
-    #region -> Enable/Disable
-
-    private void OnEnable() {
-        input.Enable();
-    }
-
-    private void OnDisable() {
-        input.Disable();
-    }
-
-    #endregion
 }
