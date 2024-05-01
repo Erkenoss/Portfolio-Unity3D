@@ -10,6 +10,10 @@ public class Aim : MonoBehaviour
     private PlayerInput input;
     [SerializeField]
     private int priority = 10;
+    [SerializeField]
+    private Canvas thirdPersonCanvas;
+    [SerializeField]
+    private Canvas aimCanvas;
     private InputAction aimAction;
     private CinemachineVirtualCamera aimCamera;
 
@@ -20,11 +24,14 @@ public class Aim : MonoBehaviour
 
     private void StartAim() {
         aimCamera.Priority += priority;
+        aimCanvas.enabled = true;
+        thirdPersonCanvas.enabled = false;
     }
 
     private void CancelAim() {
         aimCamera.Priority -= priority;
-
+        aimCanvas.enabled = false;
+        thirdPersonCanvas.enabled = true;
     }
 
 
