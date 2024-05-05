@@ -23,7 +23,7 @@ public class FindWayPoints : MonoBehaviour
     }
 
     public void Move() {
-
+        
     }
 
     private void LootAtPlayer() {
