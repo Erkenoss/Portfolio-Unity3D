@@ -60,10 +60,11 @@ public class PlayerController : MonoBehaviour
         sprintAction = input.actions["Sprint"];
     }
 
-    //Base of this code: Move function in the Unity Documentation
-    //Move function in the ThirdPerson Starter Asset
+    //Base:
+    //Move function in the Unity Documentation
+    //Move function in the ThirdPersonStarterAsset
     //Some changes for adapt with the new input system
-    //There is no jump in this code. So the control of the groundCheck is here without a true function for it
+    //There is no jump. So the control of the groundCheck is here
     private void Move() {
         //Control if the player is on the ground by the CharacterController
         groundedPlayer = controller.isGrounded;
