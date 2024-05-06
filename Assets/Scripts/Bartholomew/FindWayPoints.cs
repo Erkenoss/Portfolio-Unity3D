@@ -10,10 +10,11 @@ public class FindWayPoints : MonoBehaviour
     Animator animator;
     public GameObject go;
     public List <Transform> wayPoints = new List <Transform>();
+
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        animator  = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 
         if (go != null) {
             foreach (Transform t in go.transform) {
@@ -23,7 +24,7 @@ public class FindWayPoints : MonoBehaviour
     }
 
     public void Move() {
-        
+
     }
 
     private void LootAtPlayer() {

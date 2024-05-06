@@ -37,14 +37,22 @@ public class PlayerController : MonoBehaviour
     private bool isMouseEnable = false;
 
     //tutorial section
-    private bool tutorialMovement;
+    private bool tutorialCompleted;
+
     [SerializeField]
-    private GameObject canvasTutorialMovement;
-    public List<Image> zqsdList = new List<Image>();
+    private GameObject movementTutorial;
+    [SerializeField]
+    private GameObject summaryMovement;
+    [SerializeField]
+    public List<Transform> ZQSDList = new List<Transform>();
+
+    [SerializeField]
+    private GameObject cursorTutorial;
+    [SerializeField]
+    private GameObject summaryCursor;
 
 
-
-    #region Awake
+    #region Awake / Start
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -58,15 +66,13 @@ public class PlayerController : MonoBehaviour
         cameraTransform = Camera.main.transform;
         Cursor.visible = false;
 
-        tutorialMovement = false;
+        //Tutorial Initialization
+        tutorialCompleted = false;
         TutorialListMovement();
+        ActivateColor();
 
         //set the InputAction
         InitializeInput();
-    }
-
-    private void Start() {
-        Tutorial();
     }
 
     #endregion
@@ -74,6 +80,10 @@ public class PlayerController : MonoBehaviour
     #region Update
     void Update()
     {
+        if (!tutorialCompleted) {
+            StartTutorial();
+        }
+
         HandleCursor();
         Move();
     }
@@ -196,29 +206,111 @@ public class PlayerController : MonoBehaviour
     #endregion
 
 
-    private void Tutorial() {
-        while(!tutorialMovement) {
-            Time.timeScale = 0f;
-            zqsdList[0].color = Color.red; //A Changer
+    private void StartTutorial() {
+
+        StartTutorialMovement();
+
+        bool activeMovement = AllImageActive();
+
+        if (activeMovement) {
+            summaryMovement.gameObject.SetActive(false);
+            movementTutorial.gameObject.SetActive(false);
+            ZQSDList.Clear();
+
+            bool cursorDone = false;
+
+            cursorDone = StartTutorialCursor();
+
+            if (cursorDone) {
+
+                tutorialCompleted = true;
+            }
+
+        }
+    }
+
+    private bool StartTutorialCursor() {
+
+        cursorTutorial.gameObject.SetActive(true);
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt)) {
+            cursorTutorial.gameObject.SetActive(false);
+
+            summaryCursor.gameObject.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.LeftAlt)) {
+
+                summaryCursor.gameObject.SetActive(false);
+            }
+
+            return true;
         }
 
+        return false;
+    }
+
+    private void StartTutorialMovement() {
+
+        Vector2 moveValue = moveAction.ReadValue<Vector2>();
+
+        float horizontalMove = moveValue.y;
+        float verticalMove = moveValue.x;
+
+        //Enabled or disabled the BGColor during the tutorial
+        if (horizontalMove > 0) {
+            if (ZQSDList.Count > 0) {
+                ZQSDList[0].gameObject.SetActive(false);
+            }
+        }
+        else if (horizontalMove < 0) {
+            if (ZQSDList.Count > 0) {
+                ZQSDList[2].gameObject.SetActive(false);
+            }
+        }
+        else if (verticalMove > 0) {
+            if (ZQSDList.Count > 0) {
+                ZQSDList[3].gameObject.SetActive(false);
+            }
+        }
+        else if (verticalMove < 0) {
+            if (ZQSDList.Count > 0) {
+                ZQSDList[1].gameObject.SetActive(false);
+            }
+        }
+    }
+
+
+
+    private bool AllImageActive () {
+        foreach(Transform item in ZQSDList) {
+            if (item.gameObject.activeSelf) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void ActivateColor() {
+        foreach (Transform image in ZQSDList) {
+            image.gameObject.SetActive(true);
+        }
     }
 
     private void TutorialListMovement() {
-        if (canvasTutorialMovement != null) {
+        if (movementTutorial != null) {
 
-            zqsdList.Clear();
+            ZQSDList.Clear();
 
-            foreach (Transform movement in canvasTutorialMovement.transform) {
+            foreach (Transform image in movementTutorial.transform) {
+                if (image.transform.IsChildOf(movementTutorial.transform)) {
 
-                Image imageComponent = movement.GetComponent<Image>();
+                    Transform imageComponent = image.GetComponent<Transform>();
 
-                if (imageComponent != null) {
-                    zqsdList.Add(imageComponent);
+                    if (imageComponent != null) {
+                        ZQSDList.Add(imageComponent);
+                    }
                 }
             }
-            canvasTutorialMovement.gameObject.SetActive(true);
         }
     }
-
 }
