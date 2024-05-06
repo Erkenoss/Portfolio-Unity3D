@@ -13,7 +13,6 @@ public class BaseGhost : MonoBehaviour, IInteractable
 
     public void Interact(Transform interactorTranform) {
         Debug.Log("hey, moi c'est Bartholomew");
-        way.Move();
     }
 
     public string GetInteractText()

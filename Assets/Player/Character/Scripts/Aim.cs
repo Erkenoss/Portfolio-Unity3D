@@ -34,7 +34,6 @@ public class Aim : MonoBehaviour
         thirdPersonCanvas.enabled = true;
     }
 
-
     #region Enable/Disable
     private void OnEnable() {
         aimAction.performed += x => StartAim();

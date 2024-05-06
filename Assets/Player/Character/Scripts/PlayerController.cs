@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
@@ -11,10 +12,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float sprintSpeed = 8.0f;
     [SerializeField]
-    private float gravityValue = -9.81f;
-    [SerializeField]
-    private float rotationSpeed = 8.0f;
-    [SerializeField]
     private float blendTree;
     [SerializeField]
     private float targetRotation = 0.0f;
@@ -22,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private float targetVelocity;
     private float playerSpeed;
 
+    private int Speed;
     private Animator animator;
     private float acceleration = 10.0f;
     private CharacterController controller;
@@ -29,11 +27,24 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private Transform cameraTransform;
+
+    //InputActions
     private InputAction moveAction;
     private InputAction sprintAction;
-    private int Speed;
+    private InputAction lookAction;
+
+    //cursor state
+    private bool isMouseEnable = false;
+
+    //tutorial section
+    private bool tutorialMovement;
+    [SerializeField]
+    private GameObject canvasTutorialMovement;
+    public List<Image> zqsdList = new List<Image>();
 
 
+
+    #region Awake
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -45,21 +56,40 @@ public class PlayerController : MonoBehaviour
 
         //Camera.main = search for the camera with the tag mainCamera
         cameraTransform = Camera.main.transform;
+        Cursor.visible = false;
 
+        tutorialMovement = false;
+        TutorialListMovement();
 
+        //set the InputAction
         InitializeInput();
     }
 
+    private void Start() {
+        Tutorial();
+    }
+
+    #endregion
+
+    #region Update
     void Update()
     {
-        Cursor.visible = false;
+        HandleCursor();
         Move();
     }
+
+    #endregion
+
+    #region InputAction
     private void InitializeInput() {
         moveAction = input.actions["Move"];
         sprintAction = input.actions["Sprint"];
+        lookAction = input.actions["Look"];
     }
 
+    #endregion
+
+    #region Move
     //Base:
     //Move function in the Unity Documentation
     //Move function in the ThirdPersonStarterAsset
@@ -131,4 +161,64 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed", blendTree);
         }
     }
+
+    #endregion
+
+    #region Cursor
+
+    //Check if cursor ir active or not
+    private void HandleCursor() {
+        if (Input.GetKeyDown(KeyCode.LeftAlt)) {
+            isMouseEnable = !isMouseEnable;
+        }
+        if (isMouseEnable) {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            DisableLookInput();
+        }
+        else {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            EnableLookInput();
+        }
+    }
+
+    //LookInput is active when there is no cursor
+    private void EnableLookInput() {
+        lookAction.Enable();
+    }
+
+    //LookInput is unactive when there is cursor
+    private void DisableLookInput() {
+        lookAction.Disable();
+    }
+
+    #endregion
+
+
+    private void Tutorial() {
+        while(!tutorialMovement) {
+            Time.timeScale = 0f;
+            zqsdList[0].color = Color.red; //A Changer
+        }
+
+    }
+
+    private void TutorialListMovement() {
+        if (canvasTutorialMovement != null) {
+
+            zqsdList.Clear();
+
+            foreach (Transform movement in canvasTutorialMovement.transform) {
+
+                Image imageComponent = movement.GetComponent<Image>();
+
+                if (imageComponent != null) {
+                    zqsdList.Add(imageComponent);
+                }
+            }
+            canvasTutorialMovement.gameObject.SetActive(true);
+        }
+    }
+
 }
