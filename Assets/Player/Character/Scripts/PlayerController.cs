@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
     private GameObject cursorTutorial;
     [SerializeField]
     private GameObject summaryCursor;
+    private bool cursorDone;
+    private bool endCursor;
 
 
     #region Awake / Start
@@ -68,6 +70,9 @@ public class PlayerController : MonoBehaviour
 
         //Tutorial Initialization
         tutorialCompleted = false;
+        cursorDone = false;
+        endCursor = false;
+
         TutorialListMovement();
         ActivateColor();
 
@@ -205,7 +210,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-
+    #region Tutorial/UITutorial
     private void StartTutorial() {
 
         StartTutorialMovement();
@@ -217,37 +222,22 @@ public class PlayerController : MonoBehaviour
             movementTutorial.gameObject.SetActive(false);
             ZQSDList.Clear();
 
-            bool cursorDone = false;
-
             cursorDone = StartTutorialCursor();
 
             if (cursorDone) {
+                endCursor = EndTutorialCursor();
 
-                tutorialCompleted = true;
+                if (endCursor) {
+                    tutorialCompleted = true;
+                }
+                else {
+                    tutorialCompleted = false;
+                }
             }
 
         }
     }
 
-    private bool StartTutorialCursor() {
-
-        cursorTutorial.gameObject.SetActive(true);
-
-        if (Input.GetKeyDown(KeyCode.LeftAlt)) {
-            cursorTutorial.gameObject.SetActive(false);
-
-            summaryCursor.gameObject.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.LeftAlt)) {
-
-                summaryCursor.gameObject.SetActive(false);
-            }
-
-            return true;
-        }
-
-        return false;
-    }
 
     private void StartTutorialMovement() {
 
@@ -256,7 +246,7 @@ public class PlayerController : MonoBehaviour
         float horizontalMove = moveValue.y;
         float verticalMove = moveValue.x;
 
-        //Enabled or disabled the BGColor during the tutorial
+        //Enabled or disabled the BGColor during the tutorial for Tutorial Movement
         if (horizontalMove > 0) {
             if (ZQSDList.Count > 0) {
                 ZQSDList[0].gameObject.SetActive(false);
@@ -279,8 +269,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
     private bool AllImageActive () {
         foreach(Transform item in ZQSDList) {
             if (item.gameObject.activeSelf) {
@@ -288,6 +276,42 @@ public class PlayerController : MonoBehaviour
             }
         }
         return true;
+    }
+    private bool StartTutorialCursor() {
+
+        cursorTutorial.gameObject.SetActive(true);
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt)) {
+            cursorTutorial.gameObject.SetActive(false);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool EndTutorialCursor() {
+
+        summaryCursor.gameObject.SetActive(true);
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt)) {
+
+            IEnumerator coroutine = Disable(10.0f);
+            StartCoroutine(coroutine);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private IEnumerator Disable(float waitTime) {
+        while(true) {
+
+            yield return new WaitForSeconds(waitTime);
+
+            summaryCursor.gameObject.SetActive(false);
+        }
     }
 
     private void ActivateColor() {
@@ -313,4 +337,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
 }
