@@ -30,7 +30,6 @@ public class PlayerInteract : MonoBehaviour
         else {
             currentInteract = null;
         }
-        Debug.DrawLine(ray.origin, hit.point, Color.red);
     }
 
     private void Interact() {

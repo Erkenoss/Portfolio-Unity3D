@@ -7,26 +7,22 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float walkSpeed = 3.0f;
-    [SerializeField]
-    private float sprintSpeed = 8.0f;
-    [SerializeField]
-    private float blendTree;
-    [SerializeField]
-    private float targetRotation = 0.0f;
+    private Animator animator;
+    private CharacterController controller;
+    private PlayerInput input;
+    private Transform cameraTransform;
+
+    [SerializeField] private float walkSpeed = 3.0f;
+    [SerializeField] private float sprintSpeed = 8.0f;
+    [SerializeField] private float blendTree;
+    [SerializeField] private float targetRotation = 0.0f;
+    private Vector3 playerVelocity;
     public float rotationSmoothTime = 0.12f;
     private float targetVelocity;
     private float playerSpeed;
-
-    private int Speed;
-    private Animator animator;
     private float acceleration = 10.0f;
-    private CharacterController controller;
-    private PlayerInput input;
-    private Vector3 playerVelocity;
+    private int Speed;
     private bool groundedPlayer;
-    private Transform cameraTransform;
 
     //InputActions
     private InputAction moveAction;
@@ -37,21 +33,23 @@ public class PlayerController : MonoBehaviour
     private bool isMouseEnable = false;
 
     //tutorial section
+    [SerializeField] private GameObject tutorialCanvas;
+
     private bool tutorialCompleted;
-
-    [SerializeField]
-    private GameObject movementTutorial;
-    [SerializeField]
-    private GameObject summaryMovement;
-    [SerializeField]
-    public List<Transform> ZQSDList = new List<Transform>();
-
-    [SerializeField]
-    private GameObject cursorTutorial;
-    [SerializeField]
-    private GameObject summaryCursor;
+    private bool activeMovement;
     private bool cursorDone;
-    private bool endCursor;
+    private bool pressEKey;
+
+    [SerializeField] private GameObject movementTutorial;
+    [SerializeField] private GameObject summaryMovement;
+    [SerializeField] public List<Transform> ZQSDList = new List<Transform>();
+
+    [SerializeField] private GameObject cursorTutorial;
+    [SerializeField] private GameObject summaryCursor;
+
+    [SerializeField] private GameObject interactGhostTutorial;
+    [SerializeField] private GameObject summaryGhost;
+
 
 
     #region Awake / Start
@@ -70,11 +68,11 @@ public class PlayerController : MonoBehaviour
 
         //Tutorial Initialization
         tutorialCompleted = false;
+        activeMovement = false;
+        pressEKey = false;
         cursorDone = false;
-        endCursor = false;
 
         TutorialListMovement();
-        ActivateColor();
 
         //set the InputAction
         InitializeInput();
@@ -211,33 +209,35 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Tutorial/UITutorial
-    private void StartTutorial() {
 
+    private void StartTutorial() {
         StartTutorialMovement();
 
-        bool activeMovement = AllImageActive();
+        activeMovement = AllImageActive();
 
         if (activeMovement) {
-            summaryMovement.gameObject.SetActive(false);
-            movementTutorial.gameObject.SetActive(false);
             ZQSDList.Clear();
 
-            cursorDone = StartTutorialCursor();
+            Disable(movementTutorial, summaryMovement);
 
-            if (cursorDone) {
-                endCursor = EndTutorialCursor();
+            TutorialInteract();
 
-                if (endCursor) {
+            pressEKey = ActiveElementUI(interactGhostTutorial);
+
+            if (pressEKey) {
+
+                StartTutorialCursor();
+
+                cursorDone = ActiveElementUI(cursorTutorial);
+
+                if (cursorDone) {
+
                     tutorialCompleted = true;
-                }
-                else {
-                    tutorialCompleted = false;
+                    Destroy(tutorialCanvas);
                 }
             }
-
         }
     }
-
 
     private void StartTutorialMovement() {
 
@@ -268,7 +268,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
     private bool AllImageActive () {
         foreach(Transform item in ZQSDList) {
             if (item.gameObject.activeSelf) {
@@ -277,46 +276,46 @@ public class PlayerController : MonoBehaviour
         }
         return true;
     }
-    private bool StartTutorialCursor() {
 
-        cursorTutorial.gameObject.SetActive(true);
-
-        if (Input.GetKeyDown(KeyCode.LeftAlt)) {
-            cursorTutorial.gameObject.SetActive(false);
-
+    private bool ActiveElementUI(GameObject UIElement) {
+        if (UIElement == null) {
             return true;
         }
-
         return false;
     }
+    private void TutorialInteract() {
 
-    private bool EndTutorialCursor() {
+        if (interactGhostTutorial != null) {
 
-        summaryCursor.gameObject.SetActive(true);
+            interactGhostTutorial.gameObject.SetActive(true);
+            summaryGhost.gameObject.SetActive(true);
 
-        if (Input.GetKeyDown(KeyCode.LeftAlt)) {
-
-            IEnumerator coroutine = Disable(10.0f);
-            StartCoroutine(coroutine);
-
-            return true;
+            if (Input.GetKeyDown(KeyCode.E)) {
+                Disable(interactGhostTutorial, summaryGhost);
+            }
         }
 
-        return false;
     }
+    private void StartTutorialCursor() {
 
-    private IEnumerator Disable(float waitTime) {
-        while(true) {
+        if (cursorTutorial != null) {
 
-            yield return new WaitForSeconds(waitTime);
+            cursorTutorial.gameObject.SetActive(true);
+            summaryCursor.gameObject.SetActive(true);
 
-            summaryCursor.gameObject.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.LeftAlt)) {
+                Disable(cursorTutorial, summaryCursor);
+            }
         }
     }
 
-    private void ActivateColor() {
-        foreach (Transform image in ZQSDList) {
-            image.gameObject.SetActive(true);
+    private void Disable(GameObject pushInteractToDelete, GameObject summaryToDelete) {
+
+        if (pushInteractToDelete != null) {
+            Destroy(pushInteractToDelete);
+        }
+        if (summaryToDelete != null) {
+            Destroy(summaryToDelete);
         }
     }
 

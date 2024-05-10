@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Waypoint
   - ColorTutorial
+  - CV
+  - Hobbies
+  - AboutMe
   layers:
   - Default
   - TransparentFX

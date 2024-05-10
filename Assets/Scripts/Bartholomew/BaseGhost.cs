@@ -5,11 +5,6 @@ using UnityEngine;
 public class BaseGhost : MonoBehaviour, IInteractable
 {
     [SerializeField] public string interactText;
-    private FindWayPoints way;
-
-    private void Awake() {
-        way = GetComponent<FindWayPoints>();
-    }
 
     public void Interact(Transform interactorTranform) {
         Debug.Log("hey, moi c'est Bartholomew");
