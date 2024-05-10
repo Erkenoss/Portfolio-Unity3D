@@ -17,7 +17,7 @@ public class TurnOnOffHobbies : MonoBehaviour
         yield return new WaitForSeconds(waitOn);
 
         if (mylight != null) {
-            mylight.enabled = !mylight.enabled;
+            mylight.enabled = true;
         }
 
     }
