@@ -5,9 +5,22 @@ using UnityEngine;
 public class CV : MonoBehaviour, IInteractable
 {
     [SerializeField] public string interactText;
+    public GameObject PlayerInteractUI;
+    public GameObject panel;
+
+    private void Awake() {
+        panel.SetActive(false);
+    }
 
     public void Interact(Transform interactorTranform) {
-        Debug.Log("Coucou, tu es sur mon CV");
+        if (panel.activeSelf) {
+            panel.SetActive(false);
+            PlayerInteractUI.SetActive(true);
+        }
+        else {
+            panel.SetActive(true);
+            PlayerInteractUI.SetActive(false);
+        }
     }
 
     public string GetInteractText()

@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class AboutMe : MonoBehaviour, IInteractable
 {
-    [SerializeField] public string interactText;
+    public string interactText;
+    public GameObject PlayerInteractUI;
+    public GameObject panel;
+
+    private void Awake() {
+        panel.SetActive(false);
+    }
 
     public void Interact(Transform interactorTranform) {
-        Debug.Log("Coucou, tu es sur AboutMe");
+        if (panel.activeSelf) {
+            panel.SetActive(false);
+            PlayerInteractUI.SetActive(true);
+        }
+        else {
+            panel.SetActive(true);
+            PlayerInteractUI.SetActive(false);
+        }
     }
 
     public string GetInteractText()
