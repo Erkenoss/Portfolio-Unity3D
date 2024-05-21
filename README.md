@@ -4,13 +4,16 @@
 
 ### [x] Raysact Interaction
 
-### [ ] Dialogue
-    [ ] About me
-    [ ] CV
-    [ ] Hobbies
-    [ ] Projects
+### [x] Dialogue
+    [x] About me
+    [x] CV
+    [x] Hobbies
+    [x] Projects
 
 ### [ ] Implemente little quest
+
 ### [ ] Personnage choose
-### [ ] New Scene with interview
+
 ### [ ] Change Languages to French or English
+
+### [ ] New Scene with interview
