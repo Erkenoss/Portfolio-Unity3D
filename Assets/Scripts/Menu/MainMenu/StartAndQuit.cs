@@ -12,6 +12,11 @@ public class StartAndQuit : MonoBehaviour
         characterChoice.SetActive(true);
     }
 
+    public void ReturnMenu() {
+        characterChoice.SetActive(false);
+        MainMenu.SetActive(true);
+    }
+
     public void QuitGame() {
         Application.Quit();
     }

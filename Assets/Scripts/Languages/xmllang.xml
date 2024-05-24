@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<languages>
+    <language>
+        <Name>Français</Name>
+            <aboutmetitle>A propos de moi</aboutmetitle>
+            <aboutmetext>J'ai 34 ans et je cherche actuellement un contrat de formation professionnelle dans le domaine du développement AR/VR. Il m'a fallu du temps pour découvrir ma passion pour ce domaine, car j'ai exploré divers chemins avant de finalement m'y installer.
+
+J'aime la création, l'art. Que ce soit dessiner, écrire, sculpter, et bien que je ne m'y sois pas encore aventuré, même la création de vidéos. Construction, édification et création sont des mots qui résonnent le plus en moi.
+
+J'aime l'idée de partager des connaissances et des idées sur différents sujets. Que ce soit l'informatique, les sciences générales ou les arts. Je crois qu'il y a toujours quelque chose de précieux à apprendre et à partager.
+En 2010, j'ai obtenu un Certificat d'Aptitude Professionnelle (CAP) en Électrotechnique, spécialisé en Électricité Industrielle et du Bâtiment. Cependant, je n'ai pas poursuivi cette voie. Au lieu de cela, j'ai essayé d'entrer dans le domaine de l'électronique par le biais d'un apprentissage, mais sans succès.
+
+Suite à cela, j'ai exercé divers métiers, y compris des travaux non déclarés, dans la construction, la restauration, la vente et la rénovation de matériel informatique. En 2015, j'ai déménagé à Toulouse avec l'intention de reprendre mes études. J'avais un talent pour comprendre les états émotionnels et je m'intéressais principalement à la sociologie et à la psychologie comportementale à cette époque. Par conséquent, je me suis inscrit dans un programme de Psychologie. Cependant, j'ai finalement mis cette voie de côté en raison de l'insatisfaction que j'éprouvais vis-à-vis de la pertinence et des méthodes d'enseignement de la psychologie en France, que je trouvais insuffisantes par rapport à d'autres pays. Cela était particulièrement évident autour de 2015/2016.
+
+En 2019, j'ai décidé d'explorer un Projet Professionnel pour identifier des parcours de carrière accessibles et pertinents alignés avec mes intérêts. J'ai découvert le Développement Logiciel, que je pensais initialement être fermé pour moi à mon âge. J'ai commencé à apprendre, en commençant par un livre sur Python partagé par un ami. Mon premier exercice était d'écrire une séquence de Fibonacci.
+
+Pendant cette période, j'ai également effectué un stage de deux semaines pour construire un site web. Le technicien responsable de la maintenance de l'organisation où j'ai réalisé mon projet professionnel voulait redessiner le site web de l'entreprise pour avoir plus de contrôle sur son administration. J'ai saisi l'opportunité, malgré mes connaissances limitées préalables. C'était ma première exposition aux interfaces de ligne de commande et à Django.
+
+Bien que j'aie eu une expérience minimale, j'ai réussi à poser les bases du site web pendant ces deux semaines. Par la suite, j'ai participé à un programme de formation technique de deux semaines à l'ADRAR, où j'étais immergé dans un cours de formation en cours et où j'ai été introduit à Java et JavaScript.
+
+Après avoir terminé le projet professionnel, j'ai décidé de rejoindre l'ADRAR, une organisation de formation. J'ai réussi le test d'entrée et j'ai été sélectionné pour la session Développement et Applications Logicielles. Cependant, en raison des perturbations liées à la COVID, certains programmes de formation ont été annulés, y compris le mien, retardant mon entrée dans le domaine informatique de trois ans.
+
+En 2023, je me suis inscrit à l'École Holberton de Toulouse et j'ai terminé la formation sur les Fondamentaux du Développement en mars 2024.</aboutmetext>
+
+            <softskills>  Creatif
+  Curieux
+  Extravertie
+  Confiant</softskills>
+
+            <langtitle>Langues</langtitle>
+
+            <lang>  Français (Natif)
+  Anglais B1</lang>
+
+            <education1>  HarvardX CS50
+  Game Dev Introduction
+  2024 - En cours</education1>
+
+            <education2>  Holberton Shcool Toulouse
+  AR/VR Specialisation
+  2024 - En cours</education2>
+
+            <education3>  Holberton Shcool Toulouse
+  Fondamentaux du dèv
+  2023-2024</education3>
+
+            <education4>  CFA Morcenx
+  BEP Electrotechnique
+  2008-2010</education4>
+
+            <experience1>  Jeu portfolio 3D 2024
+  Créer mon portfolio sur Unity
+  C#/3D
+  Animations
+  Interaction par Raycast
+  Dialog et Traduction</experience1>
+
+              <experience2>  Projet Crimson Rise 2024
+  Créer les base d'un RPG sur Unity
+  C#/3D
+  Animations/Fight
+  Interaction par Collider
+  Système d'inventaire</experience2>
+
+              <experience3>  Clone RBNB 2023
+  Base double (FileStorage et DbStorage)
+  Python
+  Backend
+  Unittest</experience3>
+
+              <experience4>  Shell 2023
+  Re-créer les bases d'un shell
+  C
+  Architecture/Flowchart</experience4>
+
+              <previous>Experiences précédentes</previous>
+              <previoustext>  Reparation (Ordinateur/Téléphone/Console)
+  Vente        Agriculture
+  Electricité / Renovation        Second de cuisine / plonge</previoustext>
+
+              <chess>Ancien joueur du top 10 d'aquitaine en Elo court
+  (15 minutes) à 14 ans
+  Je reviens derrière l'échiquier</chess>
+
+              <food>La bonne bouffe
+  incroyable Porc Dongpo
+  Nouvel an Chinois
+  La Muraille d'Or Toulouse</food>
+
+              <night>Les grande nuits ;)
+  Roster and Beer Toulouse</night>
+
+              <rpg>JDR
+  (Jeu de Rôle)
+  Divers JDR</rpg>
+
+              <concert>Concert de Punk/Rock/Métal
+  SkatePark le Petit
+  Anarres/Nightwatcher
+  Concert underground</concert>
+
+              <vampire>Bal des Vampires (2023)
+  Château H St-Julia
+  Sotho: Violon
+  Maxime: Contorsioniste</vampire>
+
+              <lithli>Setmana Santa
+  Festival Gothique
+  Petit London Toulouse
+  Lith Li
+  (Dark Electro)</lithli>
+
+              <pagnanoise>Setmana Santa
+  Festival Gothique
+  Eglise Gesu Toulouse
+  Camecrude
+  (Pagan Noise)</pagnanoise>
+
+              <bdo>BDO (Black Desert Online)
+  Ancien maître de la classe Kunoïchi
+  (Liikara en jeu)
+  Considéré comme un membre du top 5 Europe par la communauté</bdo>
+
+              <ffxiv>FFXIV (Final Fantasy XIV)
+  Ancien joueur de Sadique (Niveau de difficulté le plus élevé) sur Ninja.
+  Top 1500 mondial sur le parser après 5 mois de jeu</ffxiv>
+
+              <nextbutton>Suivant</nextbutton>
+              <nextbutton1>Suivant</nextbutton1>
+              <previousbutton>Précédent</previousbutton>
+              <previousbutton1>Précédent</previousbutton1>
+
+              <tutorialmovement>Z pour avancer
+Q vers la gauche
+D vers la droite
+S pour reculer</tutorialmovement>
+              <tutorialcursor>Appuyer sur Left Control pour activer le surceur de la souris (Le curseur actif empêhce de bouger la caméra)
+Appuyer de nouveau sur Left Alt pour désactiver le curseur (Le curseur inactif permet de bouger la caméra)</tutorialcursor>
+              <tutorialghost>Appuyer sur E pour interagir avec l'environnement</tutorialghost>
+
+    </language>
+
+    <language>
+        <Name>English</Name>
+            <aboutmetitle>About me</aboutmetitle>
+            <aboutmetext>I am 34 years old and currently seeking a professional training contract in the field of AR/VR development. It took me a while to discover my passion for this field, as I explored various paths before finally settling into this one.
+
+I like creation, art. Whether it's drawing, writing, sculpting, and though I haven't ventured into it yet, even video creation.
+Construction, building, and creating are words that resonate with me the most.
+
+I like the idea of sharing knowledge and insights across different subjects. Whether it's computer science, general science, or the arts. I believe there's always something valuable to learn and share.
+In 2010, I obtained a Vocational Certificate in Electrotechnics, specializing in Industrial and Building Electricity. However, I didn't pursue this path. Instead, I tried to enter the field of electronics through an apprenticeship but without success.
+
+Following that, I engaged in various jobs, including some under-the-table work, in construction, catering, sales, and hardware refurbishment. In 2015, I moved to Toulouse with the intention of resuming my studies. I had a knack for understanding emotional states and was primarily interested in sociology and behavioral psychology at the time. Therefore, I enrolled in a Psychology program. However, I eventually put this path aside due to dissatisfaction with the relevance and teaching methods of psychology in France, which I found to be lacking compared to other countries. This was particularly evident around 2015/2016.
+
+In 2019, I decided to explore a Professional Project to identify accessible and relevant career paths aligned with my interests. I discovered Software Development, which I initially thought might be closed off to me at my age. I started learning, beginning with a Python book shared by a friend. My first exercise was to write a Fibonacci sequence.
+
+During this time, I also had a two-week internship building a website. The technician responsible for maintaining the organization where I completed my professional project wanted to redesign the company's website to have more control over its administration. I seized the opportunity, despite my limited prior knowledge. It was my first exposure to command-line interfaces and Django.
+
+Although I had minimal experience, I managed to lay the groundwork for the website during those two weeks. Subsequently, I participated in a two-week technical training program at ADRAR, where I was immersed in an ongoing training course and was introduced to Java and JavaScript.
+
+After completing the professional project, I decided to join ADRAR, a training organization. I passed the entrance test and was selected for the Software Development and Application session. However, due to COVID-related disruptions, some training programs were canceled, including mine, delaying my entry into the IT field by three years.
+
+In 2023, I enrolled in Holberton School Toulouse and completed the Fundamentals of Development training in March 2024.</aboutmetext>
+
+            <softskill>  Creative
+  Curious
+  Extroverted
+  Confident</softskill>
+
+            <langtitle>Languages</langtitle>
+
+            <lang>  French (Native)
+  English B1</lang>
+
+            <education1>  HarvardX CS50
+  Game Dev Introduction
+  2024 - In Completion</education1>
+
+            <education2>  Holberton Shcool Toulouse
+  AR/VR Specialization
+  2024 - In Completion</education2>
+
+            <education3>  Holberton Shcool Toulouse
+  Fundamentals programming
+  2023-2024</education3>
+
+            <education4>  CFA Morcenx
+  BEP Electrotechnics
+  2008-2010</education4>
+
+              <experience1>  PORTFOLIO GAME 3D 2024
+  Create my Portfolio on unity
+  C#/3D
+  Animations
+  Raycast interaction system
+  Characters choice and dialog</experience1>
+
+              <experience2>  CRIMSON RISE PROJECT 2024
+  Create the base of a RPG game on Unity
+  C#/3D
+  Animations/Fight
+  Collider interaction system
+  Inventory system</experience2>
+
+              <experience3>  RBNB clone 2023
+  Double base (File and DB storage)
+  Python
+  Backend
+  Unittest</experience3>
+
+              <experience4>  Shell 2023
+  Recreate a simplify shell
+  C
+  Architecture/Flowchart</experience4>
+
+              <previous>Previous experiences</previous>
+              <previoustext>  Hardware Repair (Computer/Phone/Console)
+  Retail / Sale        Agriculture
+  Building trades / Renovation        Kitchen assistant / Dishwasher</previoustext>
+
+              <chess>Former player in the Aquitaine top 10 in rapid Elo
+(15 minutes) at 14 years old
+I'm coming back behind the chessboard</chess>
+
+              <food>The good food
+Incredible Dongpo Pork
+Chinese New year 2024
+La Muraille d'Or Toulouse</food>
+
+              <night>The great nights ;)
+
+Roster and Beer Toulouse</night>
+
+              <rpg>RPG
+(Role Playing Game)
+Diverses RPG</rpg>
+
+              <concert>Punk/Rock/Metal Concert
+SkatePark le Petit Toulouse
+Anarres/Nightwatcher
+Undergroung Concert</concert>
+
+              <vampire>Bal Of Vampire (2023)
+Château H St-Julia
+Sotho: Violon
+Maxime: Contorsionist</vampire>
+
+              <lithli>Setmana Santa
+Gothic Festival
+Petit London Toulouse
+Lith Li
+(Dark Electro)</lithli>
+
+              <pagnanoise>Setmana Santa
+Gothic Festival
+Gesu Church Toulouse
+Camecrude (PaganNoise)</pagnanoise>
+
+              <bdo>BDO (Black Desert Online)
+Former Master of the Kunoïchi class (Liikara in game)
+Considered a member of the Top 5 Europe by the community</bdo>
+
+              <ffxiv>FFXIV (Final Fantasy XIV)
+Former Savage player (Harder boss Raid difficulties) on Ninja class
+Top 1500 ninja mondial on the parser after 5 month on gaming</ffxiv>
+
+              <nextbutton>Next</nextbutton>
+              <nextbutton1>Next</nextbutton1>
+              <previousbutton>Previous</previousbutton>
+              <previousbutton1>Previous</previousbutton1>
+
+              <tutorialmovement>Z to go forward
+Q to go on the left
+D to go on the Right
+S to go back</tutorialmovement>
+              <tutorialcursor>Push Left Control to activate the cursor of your mouse
+(If the curosr is active you can't move your camera)
+Push Left Alt again to desactivate the cursor
+(If the cursor is inactive, you can move your camera)</tutorialcursor>
+              <tutorialghost>Press E key to interact with the environment</tutorialghost>
+
+    </language>
+
+</languages>

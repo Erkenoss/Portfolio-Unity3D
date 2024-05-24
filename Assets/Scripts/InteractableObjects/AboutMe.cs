@@ -12,6 +12,16 @@ public class AboutMe : MonoBehaviour, IInteractable
         panel.SetActive(false);
     }
 
+    private void Start() {
+        if (LanguageManager.Instance.frenchLanguage)
+        {
+            interactText = "A propos de moi";
+        }
+        else {
+            interactText = "About Me";
+        }
+    }
+
     public void Interact(Transform interactorTranform) {
         if (panel.activeSelf) {
             panel.SetActive(false);

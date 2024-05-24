@@ -5,26 +5,28 @@ using DialogueEditor;
 
 public class ConversationStarter : MonoBehaviour
 {
-    [SerializeField] private GameObject GhostConversation;
-    [SerializeField] private NPCConversation myConversation;
+    private List<NPCConversation> conversations;
 
-    [SerializeField] private GameObject GhostConversationAfterFirstChoice;
-    [SerializeField] private NPCConversation mySecondConversation;
+    private void Awake() {
+        UILanguageUpdater languageUpdater = Object.FindFirstObjectByType<UILanguageUpdater>();
+        if (languageUpdater != null) {
+            conversations = languageUpdater.ConversationGhostManager();
+        }
+    }
 
     private void OnTriggerStay(Collider other) {
         if (other.CompareTag("Player")) {
             if (Input.GetKeyDown(KeyCode.E)) {
-                if (GhostConversation != null) {
-                    ConversationManager.Instance.StartConversation(myConversation);
-                }
-                else {
-                    ConversationManager.Instance.StartConversation(mySecondConversation);
+                if (conversations != null) {
+                    ConversationManager.Instance.StartConversation(conversations[0]);
                 }
             }
         }
     }
 
     private void OnTriggerExit(Collider other) {
-        Destroy(GhostConversation);
+        if (conversations.Count > 1) {
+            conversations.RemoveAt(0);
+        }
     }
 }

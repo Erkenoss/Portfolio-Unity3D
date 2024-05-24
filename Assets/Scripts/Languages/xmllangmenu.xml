@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<languages>
+    <language>
+        <Name>Français</Name>
+            <titlePortfolio>Mon Portfolio</titlePortfolio>
+            <buttonstart>Nouvelle partie</buttonstart>
+            <buttonLanguage>Langages</buttonLanguage>
+            <frenchlanguage>Français</frenchlanguage>
+            <englishlanguage>Anglais</englishlanguage>
+            <buttonquit>Quitter</buttonquit>
+
+            <titlechoose>Choisit ton personnage</titlechoose>
+            <buttonreturn>Menu Principal</buttonreturn>
+            <futurupdate>Nouvelle version en cour</futurupdate>
+    </language>
+
+    <language>
+        <Name>English</Name>
+            <titlePortfolio>My Pportfolio</titlePortfolio>
+            <buttonstart>Start</buttonstart>
+            <buttonLanguage>Languages</buttonLanguage>
+            <frenchlanguage>French</frenchlanguage>
+            <englishlanguage>English</englishlanguage>
+            <buttonquit>Quit</buttonquit>
+
+            <titlechoose>Choose your character</titlechoose>
+            <buttonreturn>Main menu</buttonreturn>
+            <futurupdate>New version in completion</futurupdate>
+    </language>
+
+</languages>

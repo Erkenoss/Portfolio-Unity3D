@@ -11,6 +11,15 @@ public class Hobbies : MonoBehaviour, IInteractable
     private void Awake() {
         panel.SetActive(false);
     }
+    private void Start() {
+        if (LanguageManager.Instance.frenchLanguage)
+        {
+            interactText = "Mes centres d'intêret";
+        }
+        else {
+            interactText = "My hobbies";
+        }
+    }
     public void Interact(Transform interactorTranform) {
         if (panel.activeSelf) {
             panel.SetActive(false);

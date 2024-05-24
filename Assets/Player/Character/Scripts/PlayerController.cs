@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
 
     //Check if cursor ir active or not
     private void HandleCursor() {
-        if (Input.GetKeyDown(KeyCode.LeftAlt)) {
+        if (Input.GetKeyDown(KeyCode.LeftControl)) {
             isMouseEnable = !isMouseEnable;
         }
         if (isMouseEnable) {
@@ -303,7 +303,7 @@ public class PlayerController : MonoBehaviour
             cursorTutorial.gameObject.SetActive(true);
             summaryCursor.gameObject.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.LeftAlt)) {
+            if (Input.GetKeyDown(KeyCode.LeftControl)) {
                 Disable(cursorTutorial, summaryCursor);
             }
         }
