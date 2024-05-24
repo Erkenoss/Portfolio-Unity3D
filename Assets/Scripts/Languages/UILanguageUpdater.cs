@@ -40,6 +40,7 @@ public class UILanguageUpdater : MonoBehaviour {
     public TextMeshProUGUI tutorialMovement;
     public TextMeshProUGUI tutorialCursor;
     public TextMeshProUGUI tutorialGhost;
+    public TextMeshProUGUI leaveButton;
 
     private Dictionary<string, TextMeshProUGUI> textElements;
 
@@ -85,6 +86,7 @@ public class UILanguageUpdater : MonoBehaviour {
             {"tutorialmovement", tutorialMovement},
             {"tutorialcursor", tutorialCursor},
             {"tutorialghost", tutorialGhost},
+            {"leavebutton", leaveButton},
         };
 
         UpdateLanguageUI();

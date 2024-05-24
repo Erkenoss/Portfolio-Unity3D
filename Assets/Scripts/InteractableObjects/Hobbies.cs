@@ -5,12 +5,13 @@ using UnityEngine;
 public class Hobbies : MonoBehaviour, IInteractable
 {
     [SerializeField] public string interactText;
-    public GameObject PlayerInteractUI;
     public GameObject panel;
-
+    [SerializeField] private Transform player;
+    private float distance;
     private void Awake() {
         panel.SetActive(false);
     }
+
     private void Start() {
         if (LanguageManager.Instance.frenchLanguage)
         {
@@ -20,14 +21,19 @@ public class Hobbies : MonoBehaviour, IInteractable
             interactText = "My hobbies";
         }
     }
+
+    private void Update() {
+        distance = Vector3.Distance(transform.position, player.position);
+        if (distance >= 2f && panel.activeSelf) {
+            panel.SetActive(false);
+        }
+    }
     public void Interact(Transform interactorTranform) {
         if (panel.activeSelf) {
             panel.SetActive(false);
-            PlayerInteractUI.SetActive(true);
         }
         else {
             panel.SetActive(true);
-            PlayerInteractUI.SetActive(false);
         }
     }
 

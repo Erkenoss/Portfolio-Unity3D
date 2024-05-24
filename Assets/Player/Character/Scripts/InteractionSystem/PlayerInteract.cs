@@ -22,7 +22,7 @@ public class PlayerInteract : MonoBehaviour
     public void InteractionRay() {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 5.0f, layerMask)) {
+        if (Physics.Raycast(ray, out hit, 4.0f, layerMask)) {
             if (hit.collider.TryGetComponent(out IInteractable interactable)) {
                 currentInteract = interactable;
             }

@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 406077911}
   - component: {fileID: 406077910}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: englishlanguage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 544892436}
   - component: {fileID: 544892435}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: buttonstart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 589069671}
   - component: {fileID: 589069670}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: frenchlanguage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -951,8 +951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -75}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 135, y: -75}
+  m_SizeDelta: {x: 220, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806375573
 MonoBehaviour:
@@ -1212,6 +1212,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1867159487}
         m_TargetAssemblyTypeName: LanguageManager, Assembly-CSharp
         m_MethodName: SetLanguage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867159488}
+        m_TargetAssemblyTypeName: LanguageManagerMenu, Assembly-CSharp
+        m_MethodName: ChangeLanguage
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1600,7 +1612,7 @@ GameObject:
   - component: {fileID: 1581144163}
   - component: {fileID: 1581144162}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: futurupdate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1811,7 +1823,7 @@ GameObject:
   - component: {fileID: 1641923447}
   - component: {fileID: 1641923446}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: buttonLanguage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1947,7 +1959,7 @@ GameObject:
   - component: {fileID: 1758092952}
   - component: {fileID: 1758092951}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: buttonreturn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2083,7 +2095,7 @@ GameObject:
   - component: {fileID: 1771395559}
   - component: {fileID: 1771395558}
   m_Layer: 5
-  m_Name: Title
+  m_Name: titlechoose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2294,7 +2306,7 @@ GameObject:
   - component: {fileID: 1800383815}
   - component: {fileID: 1800383814}
   m_Layer: 5
-  m_Name: Title
+  m_Name: titleportfolio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2317,7 +2329,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -76.65991}
-  m_SizeDelta: {x: 395.4, y: 50}
+  m_SizeDelta: {x: 450, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1800383814
 MonoBehaviour:
@@ -2578,6 +2590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1867159486}
   - component: {fileID: 1867159487}
+  - component: {fileID: 1867159488}
   m_Layer: 0
   m_Name: LanguageManager
   m_TagString: Untagged
@@ -2615,6 +2628,31 @@ MonoBehaviour:
   dictionary: {fileID: 4900000, guid: 0c1c50e24598db140b2b77cc2a80c602, type: 3}
   currentLanguageIndex: 0
   frenchLanguage: 0
+--- !u!114 &1867159488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867159485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f353099eee6cf049977ecc523792ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dictionary: {fileID: 4900000, guid: b3046b8dcbc2e794693ee55411efcd2e, type: 3}
+  currentLanguageIndex: 0
+  newLanguageIndex: 0
+  uiTexts:
+  - {fileID: 1800383814}
+  - {fileID: 544892435}
+  - {fileID: 1641923446}
+  - {fileID: 2044271282}
+  - {fileID: 589069670}
+  - {fileID: 406077910}
+  - {fileID: 1758092951}
+  - {fileID: 1581144162}
+  - {fileID: 1771395558}
 --- !u!1 &1953408846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,7 +2758,7 @@ GameObject:
   - component: {fileID: 2044271283}
   - component: {fileID: 2044271282}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: buttonquit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3113,6 +3151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Josh
   textMeshPro: {fileID: 571792789}
+  background: {fileID: 1777208728}
 --- !u!1 &2138795220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,6 +3238,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1867159487}
         m_TargetAssemblyTypeName: LanguageManager, Assembly-CSharp
         m_MethodName: SetLanguage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867159488}
+        m_TargetAssemblyTypeName: LanguageManagerMenu, Assembly-CSharp
+        m_MethodName: ChangeLanguage
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -139,6 +139,8 @@ S pour reculer</tutorialmovement>
 Appuyer de nouveau sur Left Alt pour désactiver le curseur (Le curseur inactif permet de bouger la caméra)</tutorialcursor>
               <tutorialghost>Appuyer sur E pour interagir avec l'environnement</tutorialghost>
 
+              <leavebutton>Quitter</leavebutton>
+
     </language>
 
     <language>
@@ -280,6 +282,7 @@ S to go back</tutorialmovement>
 Push Left Alt again to desactivate the cursor
 (If the cursor is inactive, you can move your camera)</tutorialcursor>
               <tutorialghost>Press E key to interact with the environment</tutorialghost>
+              <leavebutton>Quit</leavebutton>
 
     </language>
 

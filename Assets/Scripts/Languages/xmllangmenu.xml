@@ -3,7 +3,7 @@
 <languages>
     <language>
         <Name>Français</Name>
-            <titlePortfolio>Mon Portfolio</titlePortfolio>
+            <titleportfolio>Mon Portfolio</titleportfolio>
             <buttonstart>Nouvelle partie</buttonstart>
             <buttonLanguage>Langages</buttonLanguage>
             <frenchlanguage>Français</frenchlanguage>
@@ -17,7 +17,7 @@
 
     <language>
         <Name>English</Name>
-            <titlePortfolio>My Pportfolio</titlePortfolio>
+            <titleportfolio>My Portfolio</titleportfolio>
             <buttonstart>Start</buttonstart>
             <buttonLanguage>Languages</buttonLanguage>
             <frenchlanguage>French</frenchlanguage>

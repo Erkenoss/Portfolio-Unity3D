@@ -15,12 +15,8 @@ public class ConversationStarter : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other) {
-        if (other.CompareTag("Player")) {
-            if (Input.GetKeyDown(KeyCode.E)) {
-                if (conversations != null) {
-                    ConversationManager.Instance.StartConversation(conversations[0]);
-                }
-            }
+        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E)) {
+            ConversationManager.Instance.StartConversation(conversations[0]);
         }
     }
 

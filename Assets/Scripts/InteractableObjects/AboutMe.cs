@@ -5,9 +5,9 @@ using UnityEngine;
 public class AboutMe : MonoBehaviour, IInteractable
 {
     public string interactText;
-    public GameObject PlayerInteractUI;
     public GameObject panel;
-
+    [SerializeField] private Transform player;
+    private float distance;
     private void Awake() {
         panel.SetActive(false);
     }
@@ -22,14 +22,19 @@ public class AboutMe : MonoBehaviour, IInteractable
         }
     }
 
+    private void Update() {
+        distance = Vector3.Distance(player.position, transform.position);
+        if (distance >= 2 && panel.activeSelf) {
+            panel.SetActive(false);
+        }
+    }
+
     public void Interact(Transform interactorTranform) {
         if (panel.activeSelf) {
             panel.SetActive(false);
-            PlayerInteractUI.SetActive(true);
         }
         else {
             panel.SetActive(true);
-            PlayerInteractUI.SetActive(false);
         }
     }
 
