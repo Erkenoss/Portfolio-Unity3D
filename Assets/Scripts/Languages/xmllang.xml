@@ -135,8 +135,7 @@ En 2023, je me suis inscrit à l'École Holberton de Toulouse et j'ai terminé l
 Q vers la gauche
 D vers la droite
 S pour reculer</tutorialmovement>
-              <tutorialcursor>Appuyer sur Left Control pour activer le surceur de la souris (Le curseur actif empêhce de bouger la caméra)
-Appuyer de nouveau sur Left Alt pour désactiver le curseur (Le curseur inactif permet de bouger la caméra)</tutorialcursor>
+
               <tutorialghost>Appuyer sur E pour interagir avec l'environnement</tutorialghost>
 
               <leavebutton>Quitter</leavebutton>
@@ -277,10 +276,7 @@ Top 1500 ninja mondial on the parser after 5 month on gaming</ffxiv>
 Q to go on the left
 D to go on the Right
 S to go back</tutorialmovement>
-              <tutorialcursor>Push Left Control to activate the cursor of your mouse
-(If the curosr is active you can't move your camera)
-Push Left Alt again to desactivate the cursor
-(If the cursor is inactive, you can move your camera)</tutorialcursor>
+
               <tutorialghost>Press E key to interact with the environment</tutorialghost>
               <leavebutton>Quit</leavebutton>
 

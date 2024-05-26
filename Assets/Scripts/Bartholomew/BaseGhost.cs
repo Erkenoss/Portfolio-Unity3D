@@ -8,6 +8,10 @@ public class BaseGhost : MonoBehaviour, IInteractable
     [SerializeField] public string interactText;
     private List<NPCConversation> conversations;
     [SerializeField] private Transform player;
+    private float distance;
+
+    public GameObject dial;
+    public GameObject dialOption;
 
     private void Awake() {
         UILanguageUpdater languageUpdater = Object.FindFirstObjectByType<UILanguageUpdater>();
@@ -18,7 +22,9 @@ public class BaseGhost : MonoBehaviour, IInteractable
 
     public void Interact(Transform interactorTranform) {
         transform.LookAt(player);
-        ConversationManager.Instance.StartConversation(conversations[0]);
+        if (!dial.activeSelf) {
+            ConversationManager.Instance.StartConversation(conversations[0]);
+        }
     }
 
     public string GetInteractText()

@@ -30,22 +30,17 @@ public class PlayerController : MonoBehaviour
     private InputAction lookAction;
 
     //cursor state
-    private bool isMouseEnable = false;
 
     //tutorial section
     [SerializeField] private GameObject tutorialCanvas;
 
     private bool tutorialCompleted;
     private bool activeMovement;
-    private bool cursorDone;
     private bool pressEKey;
 
     [SerializeField] private GameObject movementTutorial;
     [SerializeField] private GameObject summaryMovement;
     [SerializeField] public List<Transform> ZQSDList = new List<Transform>();
-
-    [SerializeField] private GameObject cursorTutorial;
-    [SerializeField] private GameObject summaryCursor;
 
     [SerializeField] private GameObject interactGhostTutorial;
     [SerializeField] private GameObject summaryGhost;
@@ -70,7 +65,6 @@ public class PlayerController : MonoBehaviour
         tutorialCompleted = false;
         activeMovement = false;
         pressEKey = false;
-        cursorDone = false;
 
         TutorialListMovement();
 
@@ -87,7 +81,6 @@ public class PlayerController : MonoBehaviour
             StartTutorial();
         }
 
-        HandleCursor();
         Move();
     }
 
@@ -179,30 +172,13 @@ public class PlayerController : MonoBehaviour
 
     #region Cursor
 
-    //Check if cursor ir active or not
-    private void HandleCursor() {
-        if (Input.GetKeyDown(KeyCode.LeftControl)) {
-            isMouseEnable = !isMouseEnable;
-        }
-        if (isMouseEnable) {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            DisableLookInput();
-        }
-        else {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            EnableLookInput();
-        }
-    }
-
     //LookInput is active when there is no cursor
-    private void EnableLookInput() {
+    public void EnableLookInput() {
         lookAction.Enable();
     }
 
     //LookInput is unactive when there is cursor
-    private void DisableLookInput() {
+    public void DisableLookInput() {
         lookAction.Disable();
     }
 
@@ -226,15 +202,8 @@ public class PlayerController : MonoBehaviour
 
             if (pressEKey) {
 
-                StartTutorialCursor();
-
-                cursorDone = ActiveElementUI(cursorTutorial);
-
-                if (cursorDone) {
-
-                    tutorialCompleted = true;
-                    Destroy(tutorialCanvas);
-                }
+                tutorialCompleted = true;
+                Destroy(tutorialCanvas);
             }
         }
     }
@@ -295,18 +264,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-    }
-    private void StartTutorialCursor() {
-
-        if (cursorTutorial != null) {
-
-            cursorTutorial.gameObject.SetActive(true);
-            summaryCursor.gameObject.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.LeftControl)) {
-                Disable(cursorTutorial, summaryCursor);
-            }
-        }
     }
 
     private void Disable(GameObject pushInteractToDelete, GameObject summaryToDelete) {

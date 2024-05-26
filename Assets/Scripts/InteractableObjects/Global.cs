@@ -7,6 +7,7 @@ public class Global : MonoBehaviour
 
     [SerializeField] private List<GameObject> interactableList = new List<GameObject>();
     public GameObject InteractUI;
+    public PlayerController playerController;
 
 
     private void Start() {
@@ -15,6 +16,7 @@ public class Global : MonoBehaviour
     // Update is called once per frame
     private void Update() {
         CheckActive();
+        MouseActive();
     }
 
     private void InitializeList() {
@@ -32,5 +34,18 @@ public class Global : MonoBehaviour
             }
         }
         InteractUI.SetActive(!anyActive);
+    }
+
+    private void MouseActive() {
+        if (!InteractUI.activeSelf) {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            playerController.DisableLookInput();
+        }
+        else {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            playerController.EnableLookInput();
+        }
     }
 }

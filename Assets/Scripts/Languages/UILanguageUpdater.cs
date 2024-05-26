@@ -38,7 +38,6 @@ public class UILanguageUpdater : MonoBehaviour {
     public TextMeshProUGUI previousButton;
     public TextMeshProUGUI previousButton1;
     public TextMeshProUGUI tutorialMovement;
-    public TextMeshProUGUI tutorialCursor;
     public TextMeshProUGUI tutorialGhost;
     public TextMeshProUGUI leaveButton;
 
@@ -84,7 +83,6 @@ public class UILanguageUpdater : MonoBehaviour {
             {"previousbutton", previousButton},
             {"previousbutton1", previousButton1},
             {"tutorialmovement", tutorialMovement},
-            {"tutorialcursor", tutorialCursor},
             {"tutorialghost", tutorialGhost},
             {"leavebutton", leaveButton},
         };
